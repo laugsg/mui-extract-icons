@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'libraryFont';
+  font-style: normal;
+  src: local('libraryFont'), url(finalLibraryFont.ttf) format('truetype');
+}
+
+.libraryFont {
+  font-family: 'libraryFont';
+}

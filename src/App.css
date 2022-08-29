@@ -1,3 +1,42 @@
+
+@font-face {
+  font-family: 'libraryFont';
+  font-style: normal;
+  src: local('libraryFont'), url(./assets/fonts/finalLibraryFont.ttf) format('truetype');
+}
+
+.euro_outlined:after {
+  font-family: 'libraryFont';
+  content: "\2d2c"
+}
+
+.euro_rounded:after {
+  font-family: 'libraryFont';
+  content: "\2d2d"
+}
+
+.file_copy_outlined:after {
+  font-family: 'libraryFont';
+  content: "\2d2e"
+}
+
+.file_copy_rounded:after {
+  font-family: 'libraryFont';
+  content: "\2d2f"
+}
+
+.shopping_cart_outlined:after {
+  font-family: 'libraryFont';
+  content: "\2d30"
+}
+
+.shopping_cart_rounded:after {
+  font-family: 'libraryFont';
+  content: "\2d31"
+}
+
+
+
 .App {
   text-align: center;
 }

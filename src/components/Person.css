@@ -1,0 +1,40 @@
+/* import {
+    globalFontFace,
+    style
+} from '@vanilla-extract/css';
+
+const libraryFont = 'libraryFont'
+
+// globalFontFace(libraryFont,{
+//     src: 'local("libraryFont"), url(../assets/fonts/finalLibraryFont.ttf)'
+// })
+
+export const person_outlined = style({
+    // fontFamily: 'sans-serif'
+    color:'red'
+});
+
+// export const person_rounded = style({
+//     fontFamily: libraryFont,
+//     content: "\\2cc9"
+// });
+
+// export const star_outlined = style({
+//     fontFamily: libraryFont,
+//     content: "\\2cca"
+// });
+
+// export const star_rounded = style({
+//     fontFamily: libraryFont,
+//     content: "\\2ccb"
+// });
+
+// export const arrow_downward_outlined = style({
+//     fontFamily: libraryFont,
+//     content: "\\2cca"
+// });
+
+// export const arrow_downward_rounded = style({
+//     fontFamily: libraryFont,
+//     content: "\\2ccb"
+// }); */
