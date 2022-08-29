@@ -18,9 +18,14 @@ function App() {
                 finally call those icons as classes.
               </li>
               <li>
-                Icons as Components adapt the current Icons Components based in
-                SvgIcons and {"&"} MUI to use the icons library built which is
-                in the FDEL-158 of DS because config needs of @vanilla-extract.
+                Font Icon Component (image below) adapts the current icon
+                Component (based in SvgIcons and {"&"} MUI) to use the font
+                icons library (built for this purpose). Live examples can be
+                found in the{" "}
+                <a className="App-link" href="https://bit.ly/3wCyGxZ">
+                  FDEL-158
+                </a>{" "}
+                of DS (because config needs of @vanilla-extract).
               </li>
             </ul>
           </p>
@@ -53,8 +58,8 @@ function App() {
             </ul>
           </ul>
 
-            <pre>
-              {`
+          <pre>
+            {`
             @font-face {
               font-family: 'libraryFont';
               font-style: normal;
@@ -68,43 +73,63 @@ function App() {
               content: "\\2d2c"
             }
             `}
-            </pre>
+          </pre>
         </section>
 
         {/* Icons as Components */}
         <section>
-          <h2>Icons as Components</h2>
+          <h2>Icons as Components: Font Icon Compoent</h2>
           <p>
             The following image correspond to{" "}
-            <code>packages/icon/src/icons/</code> new files created (7) just for
-            this research which wont' be merged into production. About those
-            files, the important concept to be taken is:
-            <ul>
-              <li>
-                The icon component file implements a logic, almost the same, but
-                implements an icon which comes from an <code>icons.css.ts</code>
-              </li>
-              <li>
-                {" "}
-                The icons.css.ts <code>import {"{ globalFontFace }"} from
-                '@vanilla-extract/css'</code> to load the icons library which is called
-                by the components
-              </li>
-            </ul>
+            <code>packages/icon/src/icons/</code> where new files created just
+            for this research (don't merge).
           </p>
           <img style={{ width: "300px" }} src={imgIconFonts} />
           <ul>
             <li>To see Font Icons Components go to FDEL-158 branch.</li>
-            <li>To get the icons library visit <a className="App-link" href="https://mui-extract-icons.vercel.app/static/media/finalLibraryFont.d101264c3f7ed13404cb.ttf">finalLibraryFont</a></li>
+            <li>
+              To get the icons library visit{" "}
+              <a
+                className="App-link"
+                href="https://mui-extract-icons.vercel.app/static/media/finalLibraryFont.d101264c3f7ed13404cb.ttf"
+              >
+                finalLibraryFont
+              </a>
+            </li>
           </ul>
 
+          <hr />
+
+          <h3>icons.css.ts into DS</h3>
+          <pre>
+            {`
+            import { globalFontFace, style } from '@vanilla-extract/css';
+
+            const libraryFont = 'libraryFont';
+
+            globalFontFace(libraryFont, {
+                src: 'local("libraryFont"), 
+                  url("https://.../finalLibraryFont.ttf")'
+            });
+            
+            export const person_outlined = style({
+                ':after':{
+                    fontFamily: libraryFont,
+                    content: '\\2cc8'
+                }
+            });
+            `}
+          </pre>
+
+          <hr />
+
           <h2>Font Icons Component</h2>
-            <pre>
-              {`
+          <pre>
+            {`
             const IconTypes = {
-              [IconType.Rounded]: classNames.arrow_downward_rounded,
+              [IconType.Rounded]: classNames.person_rounded,
               [IconType.Sharp]: 'StarSharp',
-              [IconType.Outlined]: classNames.arrow_downward_outlined
+              [IconType.Outlined]: classNames.person_outlined
           };
 
           export default (props: object) => {
@@ -117,11 +142,11 @@ function App() {
               )
           };
             `}
-            </pre>
+          </pre>
 
           <h2>Old SVG Icons Component</h2>
-            <pre>
-              {`
+          <pre>
+            {`
             const IconTypes = {
               [IconType.Rounded]: ArrowDownwardRounded,
               [IconType.Sharp]: ArrowDownwardSharp,
@@ -133,7 +158,7 @@ function App() {
               return createElement(IconTypes[iconType || IconType.Rounded], { ...props });
           };
             `}
-            </pre>
+          </pre>
         </section>
       </header>
     </div>
