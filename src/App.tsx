@@ -178,37 +178,61 @@ function App() {
           <h2>Font Icons Component</h2>
           <pre>
             {`
+            import { IconType } from '../types';
+            import { createElement } from 'react';
+            import * as classNames from './icons.css';
+            
+            type IconProps = {
+                fontSize?: string;
+                color?: string;
+                children?: JSX.Element;
+                classes?: string;
+                shape?: string;
+            };
+            
             const IconTypes = {
-              [IconType.Rounded]: classNames.person_rounded,
-              [IconType.Sharp]: 'StarSharp',
-              [IconType.Outlined]: classNames.person_outlined
-          };
-
-          export default (props: object) => {
-              return (
-                <span 
-                  style={{fontSize: '28px'}} 
-                  className={IconTypes[IconType.Outlined]} 
-                  {...props}
-                ></span>
-              )
-          };
+                [IconType.Rounded]: classNames.arrow_downward_rounded,
+                [IconType.Sharp]: 'Sharp',
+                [IconType.Outlined]: classNames.arrow_downward_outlined
+            };
+            
+            export default (props: IconProps) => {
+                const { children, fontSize, color, classes, shape } = props;
+                return createElement('span', {
+                    style: {
+                        fontSize,
+                        color
+                    },
+                    className: $ {'classes ? classes : ''}
+                       $ {IconTypes[shape || IconType.Outlined]}
+                    }',
+                    children: children
+                });
+            };            
             `}
           </pre>
 
           <h2>Old SVG Icons Component</h2>
           <pre>
             {`
+            import { IconType } from '../types';
+            import { createElement } from 'react';
+            import { SvgIconProps } from '@mui/material/SvgIcon';
+            import { useTheme } from '@mui/material/styles';
+            import FileCopySharp from '@mui/icons-material/FileCopySharp';
+            import FileCopyRounded from '@mui/icons-material/FileCopyRounded';
+            import FileCopyOutlined from '@mui/icons-material/FileCopyOutlined';
+            
             const IconTypes = {
-              [IconType.Rounded]: ArrowDownwardRounded,
-              [IconType.Sharp]: ArrowDownwardSharp,
-              [IconType.Outlined]: ArrowDownwardOutlined
-          };
-          
-          export default (props: SvgIconProps) => {
-              let { iconType } = useTheme();
-              return createElement(IconTypes[iconType || IconType.Rounded], { ...props });
-          };
+                [IconType.Rounded]: FileCopyRounded,
+                [IconType.Sharp]: FileCopySharp,
+                [IconType.Outlined]: FileCopyOutlined
+            };
+            
+            export default (props: SvgIconProps) => {
+                let { iconType } = useTheme();
+                return createElement(IconTypes[iconType || IconType.Rounded], { ...props });
+            };            
             `}
           </pre>
         </section>
