@@ -8,6 +8,43 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Icons</h1>
+        <p style={{ fontSize: "20px" }}>
+          This investigation has proved the following:
+          <ul>
+            <li>
+              A How-To about extract icons from MUI Icons to craft an icon
+              library.
+            </li>
+            <li>
+              The iconType (that defines whether the icon should be sharp,
+              rounded or outlined) was replaced by Props as html tag parameters
+              ({'<tag param="value" ... />'})
+            </li>
+            <li>
+              Some of the SvgIcon has SVG related props which are not required
+              into Span elements revealing font icons.
+              <ul>
+                <li>
+                  Those related to styling were kept like <code>color</code> or{" "}
+                  <code>fontSize</code>.
+                </li>
+                <li>
+                  The <code>children</code> behaviour was reproduced.
+                </li>
+                <li>
+                  Classes for icon holder could be introduced by a{" "}
+                  <code>classes</code> prop.
+                </li>
+                <li>
+                  The shape based in enums and IconTypes is kept but slightly
+                  changed to match the classes which holds the icons styles
+                  through <code>shape</code> prop.
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </p>
+
         <article>
           <p>
             This project shows two different implementations
@@ -22,7 +59,11 @@ function App() {
                 Component (based in SvgIcons and {"&"} MUI) to use the font
                 icons library (built for this purpose). Live examples can be
                 found in the{" "}
-                <a className="App-link" href="https://bit.ly/3wCyGxZ">
+                <a
+                  className="App-link"
+                  target="_blank"
+                  href="https://bit.ly/3wCyGxZ"
+                >
                   FDEL-158
                 </a>{" "}
                 of DS (because config needs of @vanilla-extract).
@@ -30,6 +71,7 @@ function App() {
             </ul>
           </p>
         </article>
+
         <section>
           <h2>Icons as css classes</h2>
           <ul>
@@ -86,7 +128,17 @@ function App() {
           </p>
           <img style={{ width: "300px" }} src={imgIconFonts} />
           <ul>
-            <li>To see Font Icons Components go to FDEL-158 branch.</li>
+            <li>
+              To see Font Icons Components go to{" "}
+              <a
+                className="App-link"
+                target="_blank"
+                href="https://bit.ly/3wCyGxZ"
+              >
+                FDEL-158
+              </a>{" "}
+              branch.
+            </li>
             <li>
               To get the icons library visit{" "}
               <a
@@ -160,6 +212,51 @@ function App() {
             `}
           </pre>
         </section>
+
+        <article>
+          <h2>How-To extract icons from MUI Icons to craft an icon library.</h2>
+
+          <p>
+            Theorically, the process is not complex. This font icons library
+            creation involved AI (Adobe Illustrator) and FontForge.
+            <ol>
+              <li>
+                First, the target icons were located at the{' '}
+                <a
+                  className="App-link"
+                  target="_blank"
+                  href="https://github.com/mui/material-ui/tree/master/packages/mui-icons-material/material-icons"
+                >
+                  MUI Icons package
+                </a>
+              </li>
+              <li>
+                Then, the icons are opened as SVG files with latests version of
+                AI.
+              </li>
+              <li>
+                A squared template of 1000px x 1000px is created to match
+                FontForge placeholders.
+              </li>
+              <li>The SVGs are fitted inside the template and saved.</li>
+              <li>A blank font file is created inside FontForge.</li>
+              <li>Templated based icons are placed inside the font file.</li>
+              <li>
+                Two possibilities:
+                <ol>
+                  <li>
+                    Font Icons are settled as characters as A, B, C to show icon
+                    1, 2, 3.
+                  </li>
+                  <li>
+                    Font Icons are settled as Unicode characters
+                    as \u2cc2 to show icon 1.
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </p>
+        </article>
       </header>
     </div>
   );
