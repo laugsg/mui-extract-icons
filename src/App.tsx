@@ -21,8 +21,9 @@ function App() {
               ({'<tag param="value" ... />'})
             </li>
             <li>
-              Some of the SvgIcon has SVG related props which are not required
-              into Span elements revealing font icons.
+              Some of the SvgIcon props are SVG related, not required for the
+              Span elements which provides the base structure to font icons
+              representation.
               <ul>
                 <li>
                   Those related to styling were kept like <code>color</code> or{" "}
@@ -241,11 +242,11 @@ function App() {
           <h2>How-To extract icons from MUI Icons to craft an icon library.</h2>
 
           <p>
-            Theorically, the process is not complex. This font icons library
+            Theoretically, the process is not complex. This font icons library
             creation involved AI (Adobe Illustrator) and FontForge.
             <ol>
               <li>
-                First, the target icons were located at the{' '}
+                First, the target icons were located at the{" "}
                 <a
                   className="App-link"
                   target="_blank"
@@ -273,8 +274,8 @@ function App() {
                     1, 2, 3.
                   </li>
                   <li>
-                    Font Icons are settled as Unicode characters
-                    as \u2cc2 to show icon 1.
+                    Font Icons are settled as Unicode characters as \u2cc2 to
+                    show icon 1.
                   </li>
                 </ol>
               </li>
